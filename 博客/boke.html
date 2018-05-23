@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./js/jquery-3.2.1.min.js"></script>
+	<style>
+	html,body,ul,li,p,h2 {
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		background: url("./images/top.jpg") no-repeat center top #075498;
+		
+	}
+	a{
+		text-decoration: none;
+	}
+	ul {
+		list-style: none;
+	}
+	.head {
+		width: 1000px;
+	    margin: auto;
+	    overflow: hidden
+	}
+	.logo {
+		margin: 40px 0;
+	}
+	.nav {
+		/*height: 41px;*/
+		margin:  0 0 40px 0
+	}
+	.nav-bar {
+     position: relative;
+	}
+	.nav ul li{
+		float: left;
+		margin-right: 20px;
+	}
+	.nav ul li>a {
+		color: #fff;
+		font-size: 18px;
+	}
+	.home {
+		position: absolute;
+		text-align: center;
+		display: none;
+	}
+	.home p {
+		font-size: 12px;
+		color: #fff;
+	}
+	.article {
+		z-index: 2;
+		background: url("./images/articlebg.png");
+		background-repeat: repeat;
+		width: 1000px;
+        margin: auto;
+        overflow: hidden;
+	}
+	.clearfix::after {
+		clear: both;
+		display: block;
+		height: 0;
+		content: "";
+	}
+	.container{
+		overflow: hidden;
+		box-shadow: #075498 0px 1px 10px;
+		margin: 20px;
+		z-index: 4;
+		background: url("./images/articlebg.png") repeat;
+		width: 960px;
+		}
+	.blog {
+		margin: 30px 20px;
+        overflow: hidden;
+	}
+	.box {
+		background: #ececec;
+	    border: #FFF 10px solid;
+	    width: 270px;
+	    height: 430px;
+	    float: left;
+	    margin: 0 8px 0;
+	    overflow: hidden;
+	}
+	.box-img {
+		position: relative;
+		margin-bottom: 20px;
+		
+	}
+	.box-img img {
+		height: 260px;
+	}
+	.fix-div {
+		display: none;
+		width: 100%;
+		height: 100%;
+		background:rgba(0,0,0,0.5);
+		top: 0;
+		
+		position: absolute;
+	
+	}
+	.box-img:hover .fix-div {
+          display: block;
+	}
+	.fix-div a {
+		text-decoration: underline;
+		color: #fff;
+		font-size: 14px;
+        background: rgba(0,0,0,0.5) url("./images/yu.png") no-repeat center 10px;
+		text-align: center;
+		display: block;
+		line-height: 256px;
+	}
+	.title a {
+		display: block;
+		text-shadow: #fff 1px 1px 0px;
+	    line-height: 26px;
+	    text-align: center;
+        font-size: 14px;
+        color: #226039;
+      
+	}
+	.info {
+		padding: 10px;
+		text-align: justify;
+		font-size: 14px;
+		line-height: 22px;
+		color: #666;
+	}
+	.time {
+		    z-index: 5;
+		    margin: 30px 0 0 0;
+		    position: relative
+	}
+	.time-box {
+      position: relative;
+	}
+	.timer  {
+		text-align: right;
+		padding-right:30px;
+        width: 100px;
+       /*height: 50px;*/
+       background:#4f86b6;
+       position: absolute;
+       margin-left: 18px;
+
+	}
+	/*.time-content {
+		position: relative;
+	}*/
+	.timer p {
+		font-size: 14px;
+        color: #bdd0db
+	}
+	.timer .year {
+		font-size: 22px;
+		color: #6cbfee;
+	}
+	.line {
+		position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    width: 5px;
+	    height: 6615px;
+	    background: #afdcf8;
+	    left: 158px;
+	    margin-left: -10px
+	}
+	.icon {
+		background: #46a4da;
+		top: 12px;
+		border: 3px solid #afdcf8;
+		width: 10px;
+		height: 10px;
+		border-radius: 100%;
+		position: absolute;
+		left: 142px;
+	}
+	.timed {
+		background: #579dc5;
+		margin: 0 30px 15px 180px;
+	    padding: 20px;
+	    position: relative;
+	    border-radius: 5px;
+	    height: 170px;
+	    overflow: hidden;
+	}
+	.timed-title a {
+		font-size: 16px;
+		color: #fff;
+	}
+	.time-img  {
+    margin-top: 15px;
+	width: 200px;
+    height: 120px;
+    overflow: hidden;
+    float: left;
+    margin-right: 20px
+	}
+	.time-img img{
+		height: auto;
+		width: 100%;
+		margin: auto;
+	}
+	.time-info {
+		margin-top: 15px;
+	}
+	.time-info p {
+		color: #fff;
+		font-size: 14px;
+		line-height: 22px;
+	}
+	.time-info .name {
+		color: #c7dcce;
+		margin-top: 30px;
+		float: left;
+	}
+	.time-info span {
+		margin-top: 30px;
+		float: right;
+		display: inline-block;
+		background: #075498;
+		padding: 5px 10px;
+		border-radius: 5px;
+	}
+	.time-info span a {
+		color: #fff;
+		font-size: 14px;
+	}
+	  .time-content>li:hover .timer{
+
+       width: 100px;
+       height: 50px;
+       background:#afdcf8;
+       border-radius: 20px 0 0 20px;
+       /*position: absolute;*/
+       margin-left: 20px;
+	}
+	.change p {
+		color: #fff;
+	}
+	.change .year {
+		color: #6cbfee;
+	}
+	.footer {
+		text-align: center;
+	}
+	.footer p{
+		font-size: 14px;
+		color: #fff;
+	}
+	</style>
+</head>
+<body>
+	<div class="head">
+		<div class="logo">
+			<a href="#">
+				<img src="./images/logo.png" alt="">
+			</a>
+		</div>
+		<div class="nav clearfix">
+		  <div class="nav-bar ">
+		  	<ul>
+				<li>
+				    <a href="#">首页</a>
+				    <div class="home">
+				    	<p>Home</p>
+				    </div>
+				</li>
+				<li>
+				    <a href="#">关于我</a>
+				    <div class="home">
+				    	<p>About</p>
+				    </div>
+				</li>
+				<li>
+				    <a href="#">慢生活</a>
+				    <div class="home">
+				    	<p>Life</p>
+				    </div>
+				</li>
+				<li>
+				    <a href="#">模板分享</a>
+				    <div class="home">
+				    	<p>Share</p>
+				    </div>
+				</li>
+				<li>
+				    <a href="#">学无止境</a>
+				    <div class="home">
+				    	<p>Learn</p>
+				    </div>
+				</li>
+				<li>
+				    <a href="#">留言</a>
+				    <div class="home">
+				    	<p>Saying</p>
+				    </div>
+				</li>
+			</ul>
+		  </div>	
+		</div>
+	</div>
+	<div class="article clearfix">
+		<div class="container">
+			<div class="blog">
+				<div class="box">
+					<div class="box-img">
+						<a href="#">
+							<img src="./images/blog.jpg" alt="">
+							<div class="fix-div">
+								<a href="#">下载个人博客模板</a>
+							</div>
+						</a>
+					</div>
+					 <h2 class="title">
+					 	<a href="#">html5个人博客模板主题《心蓝时间轴...</a>
+					 </h2>
+					 <p class="info">Html5+css3个人博客模板，主题《心蓝时间轴》，使用css3技术实现网站动画效果，主要模块是时间轴部分.主题颜色为蓝色.目前版本还在测试当...</p>
+				</div>
+				<div class="box">
+					<div class="box-img">
+						<a href="#">
+							<img src="./images/blog1.jpg" alt="">
+							<div class="fix-div">
+								<a href="#">下载个人博客模板</a>
+							</div>
+						</a>
+					</div>
+					 <h2 class="title">
+					 	<a href="#">个人博客模板古典系列之——江南墨...</a>
+					 </h2>
+					 <p class="info">一共是四个页面，首页，图文列表，图片列表，文字内容。此模板风格为中国古典风格，山水画墨迹成就一幅江南墨卷。页面首页设计较为简单，...</p>
+				</div>
+				<div class="box">
+					<div class="box-img">
+						<a href="#">
+							<img src="./images/blog2.jpg" alt="">
+							<div class="fix-div">
+								<a href="#">下载个人博客模板</a>
+							</div>
+						</a>
+					</div>
+					 <h2 class="title">
+					 	<a href="#">个人博客《草根寻梦》—手机版模板</a>
+					 </h2>
+					 <p class="info">把帝国7.0系统升级到最新版本7.2，7.2版本主要是增加了一个多终端的功能，于是琢磨着做一个手机模板出来看看，在现在的模板基础上稍微改动...</p>
+				</div>
+			</div>
+			<div class="time"> 
+			  <div class="line"></div>
+			  <div class="times">
+			  	<ul class="time-content">
+					 <!-- <li class="time-box">
+						<div class="timer">
+							<p>09-18</p>
+							<p class="year">2017</p>
+						</div>
+						<div class="icon"></div>
+						<div class="timed">
+							<div class="timed-title">
+								<h2>
+									<a href="#">html5个人博客模板主题《心蓝时间轴》</a>
+								</h2>
+							</div>
+							<div class="time-img">
+								<a href="#">
+									<img src="./images/1.jpg" alt="">
+								</a>
+							</div>
+							<div class="time-info">
+								<p>Html5+css3个人博客模板，主题《心蓝时间轴》，使用css3技术实现网站动画效果，主要模块是时间轴部分.主题颜色为蓝色.目前版本还在测试当中,喜欢的可以先下载</p>
+								<p class="name">原创个人博客模板</p>
+								<span>
+									<a href="file:///E:/%E4%BE%8B%E5%AD%90/%E5%8D%9A%E5%AE%A2/xiangqing.html#">阅读全文>></a>
+								</span>
+
+							</div>
+						</div>
+					</li> -->
+				</ul>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<p>蜀ICP备11002373号-1</p>
+	</div>
+<script>
+	$(function(){
+		$(".nav ul li").mouseover(function(){
+			var index=$(this).index();
+			$(".home").eq(index).slideDown()
+		})
+		$(".nav ul li").mouseleave(function(){
+			var index=$(this).index();
+			$(".home").eq(index).slideUp()
+		})
+		// $(".time-box").mouseover(function(){
+		// 	var index=$(this).index()
+		// 	$(".timer").eq(index).addClass("change").siblings("time-box").removeClass("change")
+		// })
+	})
+	$(function(){
+		// $.ajax({
+		// 	url:"http://192.168.199.249:8080/index.php?c=api&a=bloglist",
+		// 	dataType:"json",
+  //           type:"get",
+  //           success:function(result){	
+	 //            var str=""
+		// 	    for(var i=0; i<result.data.lists.length;i++){			   	
+		// 		    str += "<li class='time-box clearfix'><div>><div class='timer'><p>"+result.data.lists[i].month+"</p><p class='year'>"+result.data.lists[i].year+"</p></div><div class='icon'></div><div class='timed'><div class='timed-title'><h2><a href='#'>"+result.data.lists[i].title+"</a></h2></div><div class='time-img'><a href='#'><img src='./images/1.jpg' alt=''></a></div><div class='time-info'><p>"+result.data.lists[i].content+"</p><span><a href='./xiangqing.html?id="+result.data.lists[i].id+"'>阅读全文>></a></span></div></div></div</li>";
+				   
+		// 	   }
+		// 	   $(".time-content").html(str);
+		//    }
+		    
+     			var result={"status":true,
+			    "data":{
+			        "lists":[
+			            {
+			                "id":"4",
+			                "title":"lllllllllllllllllllll",
+			                "content":"lllllllllllllllllllll",
+			                "image":"./public/upload/img_15091838606290152.png",
+			                "classify_id":"6",
+			                "status":"0",
+			                "createtime":"2017-10-28 17:44:20",
+			                "updatetime":null,
+			                "year":"2017",
+			                "month":"10-28",
+			                "classify_name":"php"
+			            },
+			            {
+			                "id":"3",
+			                "title":"php",
+			                "content":"ohpphph",
+			                "image":"./public/upload/img_1508662171508396.png",
+			                "classify_id":"6",
+			                "status":"1",
+			                "createtime":"2017-10-22 16:49:31",
+			                "updatetime":null,
+			                "year":"2017",
+			                "month":"10-22",
+			                "classify_name":"php"
+			            },
+			            {
+			                "id":"2",
+			                "title":"2222",
+			                "content":"222222222",
+			                "image":"./public/upload/img_1508553652138787.png",
+			                "classify_id":"5",
+			                "status":"1",
+			                "createtime":"2017-10-21 10:40:52",
+			                "updatetime":"2017-10-22 10:15:17",
+			                "year":"2017",
+			                "month":"10-21",
+			                "classify_name":"html"
+			            },
+			            {
+			                "id":"1",
+			                "title":"xinxin",
+			                "content":"qqqqqqqqqq",
+			                "image":"./public/upload/img_1508636446641043.png",
+			                "classify_id":"5",
+			                "status":"1",
+			                "createtime":"2017-10-21 10:38:57",
+			                "updatetime":"2017-10-22 09:40:46",
+			                "year":"2017",
+			                "month":"10-21",
+			                "classify_name":"html"
+			            }
+			        ],
+			        
+			    },
+			}
+			var str="";
+		   for(var i=0; i<result.data.lists.length;i++){			   	
+			    str += "<li class='time-box clearfix'><div>><div class='timer'><p>"+result.data.lists[i].month+"</p><p class='year'>"+result.data.lists[i].year+"</p></div><div class='icon'></div><div class='timed'><div class='timed-title'><h2><a href='#'>"+result.data.lists[i].title+"</a></h2></div><div class='time-img'><a href='#'><img src='./images/1.jpg' alt=''></a></div><div class='time-info'><p>"+result.data.lists[i].content+"</p><span><a href='./xiangqing.html?id="+result.data.lists[i].id+"'>阅读全文>></a></span></div></div></div</li>";
+			   
+		   };
+		   $(".time-content").html(str);
+	// })
+})
+
+</script>
+</body>
+</html>

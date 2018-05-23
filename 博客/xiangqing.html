@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./js/jquery-3.2.1.min.js"></script>
+	<style>
+	  html,body,ul,li,p,h2,b {
+	  	margin: 0;
+	  	padding: 0
+	  }
+	  body {
+	  	background: url("./images/top.jpg") no-repeat center top #075498;
+	  }
+	  a{
+		text-decoration: none;
+	}
+	ul {
+		list-style: none;
+	}
+	.home {
+		position: absolute;
+		text-align: center;
+		display: none;
+	}
+	.home p {
+		font-size: 12px;
+		color: #fff;
+	}
+	  .head {
+		width: 1000px;
+	    margin: auto;
+	    overflow: hidden
+	}
+	.logo {
+		margin: 40px 0;
+	}
+	.nav {
+		/*height: 41px;*/
+		margin:  0 0 40px 0
+	}
+	.nav-bar {
+     position: relative;
+	}
+	.nav ul li{
+		float: left;
+		margin-right: 20px;
+	}
+	.nav ul li>a {
+		color: #fff;
+		font-size: 18px;
+	}
+	.clearfix::after {
+		clear: both;
+		display: block;
+		content: "";
+		height: "";
+	}
+	.article {
+		z-index: 2;
+		background: url("./images/articlebg.png");
+		background-repeat: repeat;
+		width: 1000px;
+        margin: auto;
+        overflow: hidden;
+	}
+	.container{
+		overflow: hidden;
+		box-shadow: #075498 0px 1px 10px;
+		margin: 20px;
+		z-index: 4;
+		background: url("./images/articlebg.png") repeat;
+		width: 960px;
+		}
+		.about {
+			margin: 30px;
+			overflow: hidden;
+		}
+		.title h2 {
+			font-size: 18px;
+			color: #fff;
+			float: left;
+		}
+		.title p {
+			float: right;
+			color: #fff;
+			font-weight: bold;
+			font-size: 18px;
+		}
+	    .newnav {
+	    	margin-top: 30px;
+	    	margin-bottom: 20px;
+	    }
+	    .newnav ul li {
+	    	float: left;
+	    }
+	    .newnav ul li p {
+	    	color: #fff; 
+	    	font-size: 14px;
+	    }
+	    .newnav ul li a {
+	    	color: #4ce0b8;
+	    	font-size: 14px;
+	    }
+	    .about-con p {
+	    	line-height: 22px;
+	    	color: #fff;
+	    	font-size: 15px;
+	    }
+	    .about-img {
+	    	margin-top: 20px;
+	    	
+	    }
+	    .about-img p img{
+	    	width: 700px;
+	    	display: block;
+	    	margin: auto;
+	    }
+	    .about-img p {
+	    	margin-top: 20px;
+	    	font-size: 14px;
+	    	color: #fff;
+	    	margin-bottom: 20px;
+	    }
+	    .cms a {
+	    	color: rgb(0, 255, 0);
+	    	font-size: 14px;
+	    }
+	    span a {
+	    	  color: rgb(255, 204, 0);
+	    	  font-size: 14px;
+	    }
+	    .about-img b {
+	    	float: left;
+	    	font-size: 14px;
+	    	color: #fff;
+	    }
+        .info{
+        	margin: 0 0  20px 30px;
+        }
+        .btn {
+        	text-align: center;
+        	padding: 5px 10px 5px 20px;
+            width: 90px;
+            background: #47A9FF;
+            line-height: 24px;
+            margin-bottom: 5px
+        }
+        .btn a {
+        	font-size: 14px;
+        	color: #fff;
+        	font-weight: bold;
+        }
+        .info b {
+        	font-size: 14px;
+        	color: #fff;
+        	margin-bottom: 5px;
+        }
+        .info p {
+        	line-height: 24px;
+        	margin-bottom: 5px;
+        	color: #fff;
+        	font-size: 14px;
+        }
+        .info .ps {
+        color: #4bcfef;
+        }
+        .key {
+        	margin-left: 30px;
+        	margin-bottom: 20px;
+        }
+        .key p {
+        	font-size: 14px;
+        	color: #fff;
+        }
+        .next {
+        	margin-left: 30px;
+        }
+        .next p {
+        	font-size: 14px;
+        	color: #fff;
+        	margin-bottom: 20px;
+        }
+        .next p a{
+        	color: #fff;
+        }
+        .link {
+        	margin-left: 30px;
+        	margin-bottom: 20px;
+        }
+        .link h2 {
+        	font-size: 22px;
+        	color: #fff;
+        	background: #2a7497;
+        	width: 200px;
+        	text-align: center;
+        	padding: 10px 0;
+        	border-left: 6px solid #dae1e4;
+        	border-radius: 0 30px 30px 0;
+        	margin-bottom: 20px;
+        }
+        .link-con ul li {
+        	margin-bottom: 5px;
+        	height: 22px;
+        	overflow: hidden;
+        	width: 290px;
+          float: left;padding: 0 30px 0 0;
+          text-align: left;
+          line-height: 22px;
+        }
+        .link ul li a {
+        	font-size: 14px;
+        	color: #fff;
+        }
+        .link-con ul li:hover a {
+        	text-decoration: underline;
+        }
+        .goko {
+        	
+        	background: rgb(255, 255, 255);
+		    padding: 42px 30px 30px 30px;
+		    margin: 30px 60px;
+		    border-radius: 15px
+        }
+        .icon {
+        	margin-left: 9px;
+        }
+        .icon a {
+        	font-size: 14px;
+        	border:1px solid #e74851;
+        	color: #e74851;
+        	border-radius: 42px;
+        	padding:  10px 5px;
+        }
+        .border {
+        	width: 742px;
+        	height: 97px;
+        	border :1px solid #e74851;
+        	margin-top: 10px;
+        	border-radius: 10px;
+        }
+        .text {
+        	margin: 15px 20px 10px 20px; 
+        }
+        .text textarea{
+        	font-size: 14px ;
+        	color: #555;
+        	width: 708px;
+        	height: 72px;
+        	outline: none;
+        	border-style: none;
+        } 
+        .action {
+        	margin-bottom: 50px;
+        	margin-left: 10px;
+        	margin-top: 20px;
+        }
+        .action ul {
+        	float: left;
+        }
+        .action>ul>li {
+          float: left;
+          margin-right: 20px;
+        }
+        .face>a {
+        	display: block;
+        	background: url("./images/face.png");
+        	width: 20px ;
+        	height: 20px;
+        	background-repeat: no-repeat;
+        }
+        .active a {
+        	display: block;
+        	background: url("./images/image.png");
+        	width: 20px ;
+        	height: 20px;
+        	background-repeat: no-repeat;
+        }
+        .face:hover>a {
+        	display: block;
+        	background: url("./images/11.png");
+        	width: 20px ;
+        	height: 20px;
+        	background-repeat: no-repeat;
+
+        }
+        .active:hover a {
+        	display: block;
+        	background: url("./images/image-active.png");
+        	width: 20px ;
+        	height: 20px;
+        	background-repeat: no-repeat;
+        }
+        .face-box {
+        	display: none;
+        	width: 300px ;
+        	height:145px;
+        	position: absolute;
+        	z-index: 2;
+        	background: url("./images/face-bg.png");
+        	background-repeat: no-repeat;
+        }
+        .face-g >li{
+            text-align: center;
+            width: 35px;
+            height: 35px;
+            float: left;
+            overflow: hidden;
+            border-left: 1px dashed #e5e5e5;
+            border-bottom: 1px dashed #e5e5e5
+           
+        }
+        .face-g {
+
+        	border-top-left-radius: 10px;
+        	margin: 7px 2px;
+        	
+        }
+        .face-g>li:hover {
+        	background: #e5e5e5;
+
+        }
+        .face-g>li>a {
+        	
+        	display: block;
+        	width: 22px;
+		    height: 22px;
+		    margin: 8px 9px;
+		    overflow: hidden;
+        	background: url("./images/face-map.png") no-repeat center;
+        }
+        .face-g>li:nth-child(1) a {
+        	border-left-style: none;
+        	background-position: -2px -2px;
+             }
+	        .face-g>li:nth-child(2) a {
+	        	background-position: -2px -24px;
+	        }
+	        .face-g>li:nth-child(3) a {
+	        	background-position: -1px -49px;
+	        }
+	        .face-g>li:nth-child(4) a {
+	        	background-position: -2px -73px;
+	        }
+	        .face-g>li:nth-child(5) a {
+	        	background-position: -2px -97px;
+	        }
+	        .face-g>li:nth-child(6) a {
+	        	background-position: -2px -121px;
+	        }
+	        .face-g>li:nth-child(7) a {
+	        	background-position: -2px -145px;
+	        }
+	        .face-g>li:nth-child(8) a {
+	        	background-position: -2px -168px;
+	        }
+	     .action button  {
+	     	background: url("./images/post-btn.png");
+	     	width: 102px;
+	     	height: 30px;
+	     	display: block;
+	     	float: right;
+	     	margin-right: 20px;
+	     	outline: none;
+	     	border-style: none;
+	     }
+	     .comment p {
+	     	float: left;
+	     	text-align: center;
+	     	font-size: 16px;
+	     	color: #e74851;
+	     	width: 66px;
+	     	background: url("./images/cmtlist-bg-active.png");
+	     	background-repeat: no-repeat;
+	     }
+	     .line {
+	     	border: 0.5px solid #e74851;
+	     	width: 704px;
+	     	position: relative;
+	     	left: 66px;
+	     	top: 20px;
+
+	     }
+	     .num {
+	     	float: right;
+	     	margin-top: -30px;
+	     }
+	     .num span b {
+	     	font-size: 22px;
+
+	     }
+	     .num span {
+	     	font-size: 14px;
+	     	color: #e74851
+	     }
+	     .hot {
+	     	margin-top: 20px;
+	     }
+	     .hot h2 {
+	     	margin-bottom: 30px;
+	     	text-align: right;
+            width: 80px;
+	     	font-size: 16px;
+	     	color: #e74851;
+	     	font-weight: normal;
+	     	border-left: 5px solid #e74851;
+	     	border-top-left-radius: 5px;
+	     	border-bottom-right-radius: 5px;
+	     }
+	     .author-img {
+	     	float: left;
+	     }
+	     .author-img img {
+	     	width: 42px;
+	     	height: 42px;
+	     	border-radius: 100%;
+	     	float: left;
+	     	margin-right: 20px;
+	     }
+	     .name  a{
+	     	display: block;
+	     	font-size: 12px;
+	     	color: #e74851;
+	     	float: left;
+	     	margin-right: 10px;
+	     }
+	     .name:hover a {
+	     	text-decoration: underline;
+	     }
+	     .address p {
+	     	font-size: 12px;
+            color: #dbdbdb;
+            float: left;
+	     }
+	     .time p {
+	     	float: right;
+	     	font-size: 12px;
+	     	color: #dbdbdb;
+	     }
+	     .saying {
+	     	font-size: 14px;
+	     	color: #333;
+	     	margin-left: 69px;
+	     }
+	     .item>li {
+	     	margin-top: 20px;
+	     	position: relative;
+	     }
+	     .tip {
+	     	float: right;
+	     }
+	     .tip>ul>li {
+	     	float: left;
+	     	padding: 20px;
+	     	font-size: 14px;
+	     }
+	     .tip>ul>li>a{
+	     	color: #bdd0db
+	     }
+	     .tip>ul>li:hover a {
+	     	color: #e74851;
+	     }
+	    .inform:hover  {
+	     	background-image: url("./images/flag-hover.png");
+	     	background-repeat: no-repeat;
+	     	background-position: 1px 23px;
+	     	
+	     }
+	     .inform {
+	     	background-image: url("./images/flag.png");
+	     	background-repeat: no-repeat;
+	     	background-position: 1px 23px;
+	     	display:none;
+	     }
+	     .item>li:hover .inform {
+	     	display: block;
+	     }
+	     .zan {
+	     	background-image:url("./images/ding.png");
+	     	background-repeat: no-repeat;
+	     	background-position: 1px 23px;
+	     }
+	     .zan:hover {
+            background-image:url("./images/ding-active.png");
+	     	background-repeat: no-repeat;
+	     	background-position: 1px 23px;
+	     }
+	     .unzan {
+	     	background-image: url("./images/cai.png");
+	     	background-repeat: no-repeat;
+	     	background-position: 1px 23px;
+	     }
+	     .unzan:hover {
+	     	background-image: url("./images/cai-active.png");
+	     	background-repeat: no-repeat;
+	     	background-position: 1px 23px;
+	     }
+	     .ying>a {
+	     	display: block;
+	     	width: 20px;
+	     	height: 20px;
+	     	background-image: url("./images/prop-ico.png");
+	     	background-repeat: no-repeat;
+	     	
+	     }
+	     .item>li {
+	     	border-bottom:1px dashed #bdd0db;
+	     }
+	     .goko-con{
+	     	margin-bottom: 10px;
+	     }
+	     .hei {
+	     	float: right;
+	     }
+	     .hei p{
+	     	color: #bdd0db;
+	     	font-size: 12px;
+	     }
+	     .linked h2 {
+             color: #333;
+             font-size: 18px;
+             margin-top: 30px;
+             font-weight: normal;
+             margin-bottom: 20px;
+	     }
+	     .linked ul li {
+	     	float: left;
+	     	width: 337px;
+	     	overflow: hidden;
+	     	height: 20px;
+            font-size: 14px;
+            padding: 10px  30px 0 0;
+	     }
+	      .linked ul li a {
+	      	color: #44708e;
+	      }
+	       .linked ul li:hover a {
+	       	color: #e74851;
+	       	text-decoration: underline;
+	       }
+	       .box1 textarea{
+	       	width: 800px;
+	       	height: 100px;
+	       	display: none;
+	       }
+	       .denglu {
+	       	top:0;
+	       	position: fixed;
+	       	background: rgba(0,0,0,0.6);
+	       	width: 100%;
+	       	height: 100%;
+	       	display: none;
+	       }
+	</style>
+</head>
+<body>
+	<div class="head">
+		<div  data-scroll-reveal="enter left and move 50px over 1.33s" class="logo">
+			<img src="./images/logo.png" alt="">
+		</div>
+		<div class="nav clearfix">
+		  <div class="nav-bar ">
+		  	<ul>
+				<li>
+				    <a href="#">首页</a>
+				    <div class="home">
+				    	<p>Home</p>
+				    </div>
+				</li>
+				<li>
+				    <a href="#">关于我</a>
+				    <div class="home">
+				    	<p>About</p>
+				    </div>
+				</li>
+				<li>
+				    <a href="#">慢生活</a>
+				    <div class="home">
+				    	<p>Life</p>
+				    </div>
+				</li>
+				<li>
+				    <a href="#">模板分享</a>
+				    <div class="home">
+				    	<p>Share</p>
+				    </div>
+				</li>
+				<li>
+				    <a href="#">学无止境</a>
+				    <div class="home">
+				    	<p>Learn</p>
+				    </div>
+				</li>
+				<li>
+				    <a href="#">留言</a>
+				    <div class="home">
+				    	<p>Saying</p>
+				    </div>
+				</li>
+			</ul>
+		  </div>	
+		</div>
+	</div>
+	<div class="article">
+		<div class="container">
+		    <div class="about">
+		    	<!-- <div class="title clearfix">
+					<h2>html5个人博客模板主题《心蓝时间轴》</h2>
+					<p>2017-09-18</p>
+				</div>
+				<div class="newnav clearfix">
+					<ul>
+						<li><p class="land">您现在的位置：</p></li>
+						<li><a href="#">首页</a></li>
+	                    <li><p>></p></li>
+	                    <li><a href="">模板分析</a></li>
+	                    <li><p>></p></li>
+	                    <li><a href="">个人博客模板</a></li>
+					</ul>	
+				</div>
+			    <div class="about-con">
+				 	<p>Html5+css3个人博客模板，主题《心蓝时间轴》，使用css3技术实现网站动画效果，主要模块是时间轴部分.主题颜色为蓝色.喜欢的可以先下载.
+				 	</p>
+				</div>
+				<div class="about-img">
+					<p><img src="./images/hei.jpg" alt=""></p>
+					<p>如果你也在使用帝国cms,可以直接使用模板组.关于首页调用修改,直接修改栏目id即可.</p>
+					<span class="cms">
+						<a href="#">帝国cms模板组下载</a>
+					</span>
+					<span>
+						<a href="#">《如何使用帝国模板组?》</a>
+					</span>
+					<p>本模板更换背景图片也很简单,随意更换背景图片,还有主色就可以变换一个风格.比如这样</p>
+					<p><img src="./images/heng.png" alt=""></p>
+					<p><img src="./images/hen.png" alt=""></p>
+					<b>静态页面</b>
+                    <p>请直接点击下面的蓝色按钮</p>
+				</div> -->
+		    </div>
+		    <div class="info">
+		    	<p class="btn">
+		    		<a href="#">下载</a>
+		    	</p>
+		    	<b>下载说明</b>
+		    	<p>1、解压密码：yangqq.com</p>
+		    	<p>2、只有部分模板会提供多页面下载，未加说明都是只有一个首页index.html模板。</p>
+		    	<p>3、如果您发现模板有错，或者您有其他更好的意见、建议请给我们留言，我们会及时处理！</p>
+		    	<p>4、如果您遇到什么问题，也可加入本站互动QQ群 280998807(交流群)  280998843（技术群）咨询！</p>
+		    	<p class="ps">* 下载本站模板以及作品仅供学习研究之用，若发现任何组织机构及个人有用于商业目的者,必追究其法律责任 *
+		    	</p>
+		    </div>
+		    <div class="key">
+		    	<p>
+		    		<span>关键字</span>
+		    		：html5,个人博客,个人博客模板,时间轴
+		    	</p>
+		    </div>
+		    <div class="next">
+		    	<p>
+		    	    上一篇：
+		    		<a href="#">个人博客模板古典系列之——江南墨卷Html</a>
+		    	</p>
+		    	<p>
+		    	    下一篇：：
+		    		<a href="#">返回列表</a>
+		    	</p>
+		    </div>
+		    <div class="link clearfix">
+		    	<h2>相关文章</h2>
+		    	<div class="link-con">
+		    		<ul>
+		    			<li><a href="#">个人博客模板古典系列之——江南墨卷Html</a></li>
+		    			<li><a href="#">古典风格-个人博客模板</a></li>
+		    			<li><a href="#">个人博客《草根寻梦》—手机版模板</a></li>
+		    			<li><a href="#">【活动作品】柠檬绿兔小白个人博客模板</a></li>
+		    			<li><a href="#">【匆匆那些年】总结个人博客经历的这四年…</a></li>
+		    			<li><a href="#"> 2014年度优秀个人博客排名公布</a></li>
+		    			<li><a href="#">2014年度优秀个人博客评选活动</a></li>
+		    			<li><a href="#">分享我的个人博客访问量如何做到IP从10到600的(图文)</a></li>
+		    			<li><a href="#">个人博客模板《世界杯来袭》</a></li>
+		    			<li><a href="#">HTML5摄影主题模板</a></li>
+		    		</ul>
+		    	</div>
+		    </div>
+		    <div class="goko">
+		    	<div class="goko-con clearfix">
+		    		<div class="icon">
+		    			<a href="#">登陆</a>
+		    		</div>
+		    		<div class="border">
+		    			<div class="text">
+		    				<textarea name="" id="" cols="30" rows="10">有事没事说两句...</textarea>
+		    			</div>
+		    		</div>
+		    		<div class="action clearfix">
+		    			<ul>
+		    				<li class="face">
+		    				   <a href="#"></a>
+		    				   <div class="face-box ">
+		    				   	<ul class="face-g">
+		    				   		<li><a href="#"></a></li>
+		    				   		<li><a href="#"></a></li>
+		    				   		<li><a href="#"></a></li>
+		    				   		<li><a href="#"></a></li>
+		    				   		<li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
+		    				   		<li><a href="#"></a></li>
+		    				   	</ul>
+		    				   	<ul class="face-g">
+		    				   		<li><a href="#"></a></li>
+		    				   		<li><a href="#"></a></li>
+		    				   		<li><a href="#"></a></li>
+		    				   		<li><a href="#"></a></li>
+		    				   		<li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
+		    				   		<li><a href="#"></a></li>
+		    				   	</ul>
+		    				   	<ul class="face-g">
+		    				   		<li><a href="#"></a></li>
+		    				   		<li><a href="#"></a></li>
+		    				   		<li><a href="#"></a></li>
+		    				   		<li><a href="#"></a></li>
+		    				   		<li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
+		    				   		<li><a href="#"></a></li>
+		    				   	</ul>
+		    				   </div>
+		    				</li>
+		    				<li class="active"><a href="#"></a></li>
+		    			</ul>
+		    			<button></button>
+		    		</div>
+		    		<div class="discuss clearfix">
+		    			<div class="comment">
+		    				<p>评论</p>
+		    			</div>
+		    			<div class="line"></div>
+		    		</div>
+		    		<div class="num ">
+		    			<span>
+		    				<b>88</b>
+		    				人参与，
+		    			</span>
+		    			<span>
+		    				<b>37</b>
+		    				条评论
+		    			</span>
+		    		</div>
+		    		<div class="hot">
+		    			<h2>热门评论</h2>
+		    		</div>
+		    		<ul class="item">
+			    		<!-- <li class="clearfix">
+			    			<div class="author clearfix">
+				    			<div class="author-img">
+				    				<img src="./images/555.jpg" alt="">
+				    			</div>
+				    			<div class="name"><a href="#">挽留所有不能的</a></div>
+				    			<div class="address">
+				    				<p>[山西省太原市网友]</p>
+				    			</div>
+				    			<div class="time clearfix">
+				    				<p>2017年9月29日 11:36</p>
+				    			</div>
+				    			<div class="saying">
+				    				<p>很喜欢这个，但是我用的emlog，还得改，就是懒啊</p>
+				    		    </div>
+				    		    <div class="tip">
+				    		    	<ul>
+				    		    		<li class="inform"><a href="#">举报</a></li>
+				    		    		<li class="replay"><a href="#">回复</a></li>
+				    		    		<li class="zan"><a href="#">2</a></li>
+				    		    		<li class="unzan"><a href="#"></a></li>
+				    		    		<li class="ying"><a href="#"></a></li>
+				    		    	</ul>
+				    		    </div>	
+				    		</div>
+				    		<div class="box1">
+				    			<textarea name="" id="" cols="30" rows="10"></textarea>
+				    		</div>
+			    		</li>	 -->
+		    		</ul>
+		    	</div>
+		    	<div class="hei clearfix">
+		    		<p>杨青博客正在使用畅言</p>
+		    	</div>
+		    	<div class="linked">
+		    		<h2>热评话题</h2>
+		    		<ul class="clearfix">
+		    			<li><a href="#">html5个人博客模板主题《心蓝时间轴》</a></li>
+		    			<li><a href="#">留言板 - 一个站在web前端设计之路的女技术员个人博客网站</a></li>
+		    			<li><a href="#">网站即将改版，敬请期待 - 一个站在web前端设计之路的女技术员个人博客网站</a></li>
+		    			<li><a href="#">两列DIV高度自适应方法汇总 - 一个站在web前端</a></li>
+		    		</ul>
+		    	</div>
+		    </div>
+		</div>  
+	</div>
+	<div class="denglu">
+		<span>
+		    账号
+			<input type="text" name="name" class="mm" placeholder=邮箱>
+		</span>
+		<span>
+		  密码
+			<input type="password" name="password" class="nnn" placeholder=密码>
+		</span>	
+		<p><button>登录</button></p>
+	</div>
+<script>
+	$(function(){
+		$(".nav ul li").mouseover(function(){
+			var index=$(this).index();
+			$(".home").eq(index).slideDown()
+		})
+		$(".nav ul li").mouseleave(function(){
+			var index=$(this).index();
+			$(".home").eq(index).slideUp()
+		})
+		$(".face").click(function(){
+			$(".face-box").show();
+		})
+		$(".replay").click(function(){
+          $(".box1 textarea").toggle();
+		})
+	})
+	$(function(){
+		var nowId=window.location.search.split("=")[1];
+		$.ajax({
+			url:"http://192.168.199.249:8080/index.php?c=api&a=info",
+			dataType:"json",
+            type:"get",
+            data:{
+            	id:nowId ,
+            },
+            success:function(result){
+            	var str='<div class="title clearfix"><h2>'+result.data.info.title+'</h2><p>'+result.data.info.content+'</p></div>'
+		       $(".about").html(str)
+		       var rStr="";
+		       for(var i=0;i<result.data.commentList.length;i++){
+		       	 rStr+="<li class='clearfix'><div class='author'><div class='author-img'><img src='./images/555.jpg'alt=''></div><div class='name'><a href='#'>"+result.data.commentList[i].author.name+"</a></div><div class='address'><p>[山西省太原市网友]</p></div><div class='time clearfix'><p>"+result.data.commentList[i].createtime+"</p></div><div class='saying'><p>"+result.data.commentList[i].content+"</p></div><div class='tip'><ul><li class='inform'><a href='#'>举报</a></li><li class='replay'><a href='#'>回复</a></li><li class='zan'><a href='#'>2</a></li><li class='unzan'><a href='#'></a></li><li class='ying'><a href='#'></a></li></ul></div></div><div class='box1'><textarea name='' id='' cols='30' rows='10'></textarea></div></li>"
+		       }
+		       $(".item").html(rStr);	
+		    }
+		});
+       
+	})
+	$(function(){
+		$(".icon").click(function(){
+			$(".denglu").show();
+		})
+		$("button").click(function(){
+			 var enterUserName = $(".mm").val();
+	         var enterPassword = $(".nnn").val();
+	         $.ajax({
+				url:"http://192.168.199.249:8080/index.php?c=api&a=doLogin",
+				type:"post",
+				dataType:"json",
+				data:{
+					// id:nowId,
+	               email:enterUserName,
+		           password:enterPassword,
+				},
+				success:function(result){
+					if(result.status){
+						$(".denglu").hide()
+						$(".icon a").text(result.data.name)
+	                     alert("登陆成功");
+	                     localStorage.setItem("user_id",result.data.id);
+	                     localStorage.setItem("user_name",result.data.name)
+					} 
+	            },
+                error:function(result){
+                    alert("登陆失败");
+                },
+			})
+		})
+		$(".action button").click(function(){
+			var contentText=$(".text textarea").val();
+			var blogId=window.location.search.split("=")[1];
+			var userId=localStorage.getItem("user_id");
+			var userName=localStorage.getItem("user_name")
+			$.ajax({
+				url:"http://192.168.199.249:8080/index.php?c=api&a=doComment",
+				type:"post",
+				dataType:"json",
+				data:{
+					content:contentText,
+					user_id:blogId,
+					blog_id:userId,
+				},
+				success:function(result){
+					if(result.status){
+						alert("发布成功");
+					  var cStr="<li class='clearfix'><div class='author'><div class='author-img'><img src='./images/555.jpg'alt=''></div><div class='name'><a href='#'>"+userName+"</a></div><div class='address'><p>[山西省太原市网友]</p></div><div class='time clearfix'><p>"+result.data.createtime+"</p></div><div class='saying'><p>"+contentText+"</p></div><div class='tip'><ul><li class='inform'><a href='#'>举报</a></li><li class='replay'><a href='#'>回复</a></li><li class='zan'><a href='#'>2</a></li><li class='unzan'><a href='#'></a></li><li class='ying'><a href='#'></a></li></ul></div></div><div class='box1'><textarea name='' id='' cols='30' rows='10'></textarea></div></li>"
+					    $(".item").append(cStr)	
+					}
+				}
+			})
+		})
+	})
+</script>
+</body>
+</html>

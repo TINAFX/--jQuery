@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./js/jquery-3.2.1.min.js"></script>
+	<style></style>
+</head>
+<body>
+	<div>
+		<span>
+		    账号
+			<input type="text" name="name" class="mm" placeholder=邮箱>
+		</span>
+		<span>
+		  密码
+			<input type="password" name="password" class="nnn" placeholder=密码>
+		</span>	
+		<p><button>登录</button></p>
+	</div>
+	<script>
+	$(function(){
+		// var nowId=window.location.search.split("=")[1];
+		
+		 $("button").click(function(){
+			 var enterUserName = $(".mm").val();
+	         var enterPassword = $(".nnn").val();
+			$.ajax({
+				url:"http://192.168.199.249:8080/index.php?c=api&a=doLogin",
+				type:"post",
+				dataType:"json",
+				data:{
+					// id:nowId,
+	               email:enterUserName,
+		           password:enterPassword,
+				},
+				success:function(result){
+					
+						 location.href="./xiangqing.html";
+	                alert("登陆成功");
+					
+	               
+	            },
+                error:function(result){
+                    alert("登陆失败");
+                },
+			})
+		})
+		// var result={
+		// 	"status" : true,
+		// 	"data"   : {
+		// 		"id": "1",
+		// 	    "name": "马莹",
+		// 	    "email": "1977905246@qq.com",
+		// 	    "image": "./public/upload/img_1508660053229888.png",
+		// 	    "status": "0",
+		// 	    "createtime": "2017-10-22 16:14:13",
+		// 	    "updatetime": null
+		// 	}
+		// }
+	})
+	</script>
+</body>
+</html>
